@@ -1,0 +1,43 @@
+<div class="row gnotes">
+  <div class="col-md-12">
+    <h2>G Notes</h2>
+  </div>
+</div>
+<div class="row">
+
+<div class="col-sm-4">
+<table class="table table-striped">
+	<tr *ngFor="let note of Notes"> 
+	<td>{{note.id}}</td>
+	<td>{{note.title}}</td>
+	<td>{{note.body}}</td>
+	<td> <button class="btn btn-success" (click)="onEditNotes(note)">Edit</button> </td>
+	<!-- <td> <button class="btn btn-danger" (click)="onDeleteClient(cust.id)">Delete</button>  -->
+	<td> <button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">x</button> 
+	</td>
+	<td> 
+	<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Are You sure to delete </h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-md" data-dismiss="modal" (click)="onDeleteNotes(note.id)" >Yes</button>
+          <button type="button" class="btn btn-default btn-md" data-dismiss="modal">No</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+	</td>
+	</tr>
+</table>
+</div>
+<div class="col-sm-8">
+    <app-notes [CustProp]="ClientRow" [EditProp]="EditMode"> </app-notes>
+</div>
+</div>

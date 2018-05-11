@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+ <h1> {{EditModeStatus}} </h1>
+  <form #frmClient="ngForm" (ngSubmit)="onSubmitClient(frmClient.value)" class="form-horizontal" >
+    <!-- <p>Add new Client</p> -->
+    
+    <label>Title</label>
+    <input
+      type="text"
+      class="form-control"
+      name="title"
+      [(ngModel)]="NewCust.title"
+      ngModel>
+    <label> Body</label>
+    <input
+      type="text"
+      class="form-control"
+      name="body"
+      [(ngModel)]="NewCust.body"
+      ngModel>
+    <br>
+   
+    <br>
+
+  <button class="btn btn-primary" *ngIf="!EditModeStatus" type="submit">Save Notes</button>
+  <button class="btn btn-primary" *ngIf="EditModeStatus" type="submit">Update Notes</button>
+  
+</form>
+</div>
+</div>
